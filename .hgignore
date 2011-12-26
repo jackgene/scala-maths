@@ -1,0 +1,15 @@
+# Apple
+\.DS_Store$
+
+# Gradle
+^[^/]*/.gradle
+
+# Eclipse
+^[^/]*/bin
+^[^/]*/\.scala_dependencies
+# Classpath references are environment specific (relative to $HOME)
+^[^/]*/\.project
+^[^/]*/\.classpath
+^[^/]*/\.settings/org\.eclipse\.jdt\.core\.prefs
+# Mylyn back ups
+mylyn/backup
