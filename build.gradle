@@ -23,3 +23,31 @@ dependencies {
     testCompile 'junit:junit:4.+'
     testCompile 'org.scalatest:scalatest_2.9.1:1.6.1'
 }
+
+import org.gradle.plugins.ide.eclipse.model.Container
+eclipse {
+    classpath {
+        file {
+            beforeMerged { classpath ->
+                classpath.entries.removeAll { entry ->
+                    entry.kind == 'src' || entry.kind == 'con'
+                }
+            }
+            
+            whenMerged { classpath ->
+                entries = classpath.entries
+                
+                // Add Scala library
+                container = new Container(
+                    'org.scala-ide.sdt.launching.SCALA_CONTAINER')
+                i = entries.findLastIndexOf { it.kind == 'con' } + 1
+                entries.add(i, container)
+                
+                // Remove Scala Library JAR (the ScalaIDE doesn't like this)
+                entries.removeAll { entry ->
+                    entry.kind == 'lib' && entry.path.contains('scala-library')
+                }
+            }
+        }
+    }
+}
