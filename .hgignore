@@ -2,7 +2,9 @@
 \.DS_Store$
 
 # Gradle
+\.cache
 \.gradle
+build
 
 # Eclipse
 bin
