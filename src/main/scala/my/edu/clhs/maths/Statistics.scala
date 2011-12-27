@@ -65,6 +65,7 @@ class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
 object Statistics {
   def apply(value: Double) = new Statistics(1, value, value*value)
   
+  // TODO more meaningful name?
   def apply(count: Long, mean: Double, populationStdev: Double) = {
     val sum = count * mean
     val sumOfSquares =
