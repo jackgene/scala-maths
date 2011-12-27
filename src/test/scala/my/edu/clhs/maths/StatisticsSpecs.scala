@@ -34,65 +34,113 @@ class StatisticsSpecs
     "composed of a single value" must {
       val stats = Statistics(42)
       
-      "have a mean of that value" is (pending)
+      "have a mean of that value" in {
+        stats.mean must equal (42)
+      }
       
-      "have a population variance of zero" is (pending)
+      "have a population variance of zero" in {
+        stats.populationVariance must equal (0)
+      }
       
-      "have a population standard deviation of zero" is (pending)
+      "have a population standard deviation of zero" in {
+        stats.populationStdev must equal (0)
+      }
       
-      "have a sample variance of zero" is (pending)
+      "have a sample variance of zero" in {
+        stats.sampleVariance must equal (0)
+      }
       
-      "have a sample standard deviation of zero" is (pending)
+      "have a sample standard deviation of zero" in {
+        stats.sampleStdev must equal (0)
+      }
       
-      "have a count of one" is (pending)
+      "have a count of one" in {
+        stats.count must equal (1)
+      }
     }
     
     "composed of two identical values" must {
       val stats = Statistics(42) + Statistics(42)
       
-      "have a mean of that value" is (pending)
+      "have a mean of that value" in {
+        stats.mean must equal (42)
+      }
       
-      "have a population variance of zero" is (pending)
+      "have a population variance of zero" in {
+        stats.populationVariance must equal (0)
+      }
       
-      "have a population standard deviation of zero" is (pending)
+      "have a population standard deviation of zero" in {
+        stats.populationStdev must equal (0)
+      }
       
-      "have a sample variance of zero" is (pending)
+      "have a sample variance of zero" in {
+        stats.sampleVariance must equal (0)
+      }
       
-      "have a sample standard deviation of zero" is (pending)
+      "have a sample standard deviation of zero" in {
+        stats.sampleStdev must equal (0)
+      }
       
-      "have a count of two" is (pending)
+      "have a count of two" in {
+        stats.count must equal (2)
+      }
     }
     
     "composed of the values 0 and 8" must {
-      val stats = Statistics(42) + Statistics(42)
+      val stats = Statistics(0) + Statistics(8)
       
-      "have a mean of 4" is (pending)
+      "have a mean of 4" in {
+        stats.mean must equal (4)
+      }
       
-      "have a population variance of 16" is (pending)
+      "have a population variance of 16" in {
+        stats.populationVariance must equal (16)
+      }
       
-      "have a population standard deviation of 4" is (pending)
+      "have a population standard deviation of 4" in {
+        stats.populationStdev must equal (4)
+      }
       
-      "have a sample variance of 32" is (pending)
+      "have a sample variance of 32" in {
+        stats.sampleVariance must equal (32)
+      }
       
-      "have a sample standard deviation of 5.656..." is (pending)
+      "have a sample standard deviation of 5.656854" in {
+        stats.sampleStdev must be (5.656854 plusOrMinus 0.000001)
+      }
       
-      "have a count of two" is (pending)
+      "have a count of two" in {
+        stats.count must equal (2)
+      }
     }
     
     "composed of the values 1, 1, 2, 3, 5 and 8" must {
       val stats = List(1,1,2,3,5,8).map(Statistics(_)).reduce(_+_)
       
-      "have a mean of 3.333..." is (pending)
+      "have a mean of 3.333333" in {
+        stats.mean must be (3.333333 plusOrMinus 0.000001)
+      }
       
-      "have a population variance of 6.222..." is (pending)
+      "have a population variance of 6.222222" in {
+        stats.populationVariance must be (6.222222 plusOrMinus 0.000001)
+      }
       
-      "have a population standard deviation of 2.494..." is (pending)
+      "have a population standard deviation of 2.494438" in {
+        stats.populationStdev must be (2.494438 plusOrMinus 0.000001)
+      }
       
-      "have a sample variance of 7.466..." is (pending)
+      "have a sample variance of 7.466667" in {
+        stats.sampleVariance must be (7.466667 plusOrMinus 0.000001)
+      }
       
-      "have a sample standard deviation of 2.732..." is (pending)
+      "have a sample standard deviation of 2.732520" in {
+        stats.sampleStdev must be (2.732520 plusOrMinus 0.000001)
+      }
       
-      "have a count of 6" is (pending)
+      "have a count of 6" in {
+        stats.count must equal (6)
+      }
     }
   }
 }
