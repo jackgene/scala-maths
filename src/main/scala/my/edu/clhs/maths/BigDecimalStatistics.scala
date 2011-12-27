@@ -20,6 +20,8 @@ package my.edu.clhs.maths
 import java.io.DataInput
 import java.io.DataOutput
 
+import scala.math.BigDecimal.double2bigDecimal
+import scala.math.BigDecimal.long2bigDecimal
 import scala.math.sqrt
 
 /**
@@ -64,9 +66,9 @@ class BigDecimalStatistics private (
  * {@link Statistics} componion object.
  */
 object BigDecimalStatistics {
-  def apply(value: Double) = new BigDecimalStatistics(1, value, value*value)
+  def apply(value: BigDecimal) = new BigDecimalStatistics(1, value, value*value)
   
-  def apply(count: Long, mean: Double, populationStdev: Double) = {
+  def apply(count: Long, mean: BigDecimal, populationStdev: Double) = {
     val sum = count * mean
     val sumOfSquares =
       sum*sum / count + populationStdev*populationStdev * count
