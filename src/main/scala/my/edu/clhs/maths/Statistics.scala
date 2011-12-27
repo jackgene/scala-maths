@@ -42,7 +42,7 @@ class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
     if (count > 1)
       sumOfSqDevs / (count-1)
     else
-      0
+      0.0
   
   def sampleStdev = sqrt(sampleVariance)
   
@@ -57,8 +57,7 @@ class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
   )
   
   override def toString =
-    List(count, sum, sumOfSquares, mean, sampleStdev, populationStdev).
-      mkString(",")
+    (mean, populationStdev, count).toString
 }
 /**
  * {@link Statistics} componion object.
