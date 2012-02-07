@@ -27,13 +27,10 @@ import scala.math.sqrt
  * 
  * @author Jack Leow
  */
-class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
-  def count(): Long = count
-  
-  def sum(): Double = sum
-  
-  def sumOfSquares(): Double = sumOfSquares
-  
+class Statistics private (
+    val count: Long,
+    private val sum: Double,
+    private val sumOfSquares: Double) {
   def mean = sum / count
   
   private def sumOfSqDevs = sumOfSquares - sum*sum/count

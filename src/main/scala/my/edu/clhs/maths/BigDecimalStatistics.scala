@@ -30,13 +30,9 @@ import scala.math.sqrt
  * @author Jack Leow
  */
 class BigDecimalStatistics private (
-    count: Long, sum: BigDecimal, sumOfSquares: BigDecimal) {
-  def count(): Long = count
-  
-  def sum(): BigDecimal = sum
-  
-  def sumOfSquares(): BigDecimal = sumOfSquares
-  
+    val count: Long,
+    private val sum: BigDecimal,
+    private val sumOfSquares: BigDecimal) {
   def mean = sum / count
   
   private def sumOfSqDevs = sumOfSquares - sum*sum/count
