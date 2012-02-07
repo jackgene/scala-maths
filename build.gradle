@@ -4,6 +4,8 @@ apply plugin: 'eclipse'
 group = 'my.edu.clhs'
 version = '0.0-SNAPSHOT'
 
+defaultTasks 'jar'
+
 repositories {
     mavenCentral()
 }
