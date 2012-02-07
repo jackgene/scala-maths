@@ -60,7 +60,7 @@ class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
     (count, mean, populationStdev).toString
 }
 /**
- * {@link Statistics} componion object.
+ * {@link Statistics} companion object.
  */
 object Statistics {
   def apply(value: Double) = new Statistics(1, value, value*value)

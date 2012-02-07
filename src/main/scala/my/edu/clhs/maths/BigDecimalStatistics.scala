@@ -63,7 +63,7 @@ class BigDecimalStatistics private (
     (count, mean, populationStdev).toString
 }
 /**
- * {@link Statistics} componion object.
+ * {@link Statistics} companion object.
  */
 object BigDecimalStatistics {
   def apply(value: BigDecimal) = new BigDecimalStatistics(1, value, value*value)
