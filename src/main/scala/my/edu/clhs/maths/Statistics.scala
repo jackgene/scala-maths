@@ -57,7 +57,7 @@ class Statistics private (count: Long, sum: Double, sumOfSquares: Double) {
   )
   
   override def toString =
-    (mean, populationStdev, count).toString
+    (count, mean, populationStdev).toString
 }
 /**
  * {@link Statistics} componion object.

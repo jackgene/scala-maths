@@ -60,7 +60,7 @@ class BigDecimalStatistics private (
   )
   
   override def toString =
-    (mean, populationStdev, count).toString
+    (count, mean, populationStdev).toString
 }
 /**
  * {@link Statistics} componion object.
