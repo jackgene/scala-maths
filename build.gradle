@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     // Libraries needed to run the scala tools
+    scalaTools 'org.scala-lang:jline:2.9.1'
     scalaTools 'org.scala-lang:scala-compiler:2.9.1'
     scalaTools 'org.scala-lang:scala-library:2.9.1'
     
@@ -52,6 +53,15 @@ eclipse {
             }
         }
     }
+}
+
+task console(type: JavaExec, dependsOn: 'classes') {
+  main = 'scala.tools.nsc.MainGenericRunner'
+  standardInput = System.in
+  args '-usejavacp'
+  classpath configurations.scalaTools
+  classpath configurations.runtime
+  classpath sourceSets.main.classesDir
 }
 
 task wrapper(type: Wrapper)
