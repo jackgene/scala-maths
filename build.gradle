@@ -55,13 +55,32 @@ eclipse {
     }
 }
 
-task console(type: JavaExec, dependsOn: 'classes') {
-  main = 'scala.tools.nsc.MainGenericRunner'
-  standardInput = System.in
-  args '-usejavacp'
-  classpath configurations.scalaTools
-  classpath configurations.runtime
-  classpath sourceSets.main.classesDir
+task console(dependsOn: 'classes') << {
+    if (gradle.startParameter.logLevel < LogLevel.QUIET) {
+        println(
+            'Note: The Scala REPL works best in quiet mode ' +
+            '(gradle -q console).')
+    }
+    if (Boolean.getBoolean('org.gradle.daemon')) {
+        println('Note: The Scala REPL does not run well in Gradle daemon mode.')
+        println('Command completion and history do not work properly.')
+    }
+    javaexec {
+        main = 'scala.tools.nsc.MainGenericRunner'
+        standardInput = System.in
+        args '-usejavacp'
+        bootstrapClasspath System.properties['sun.boot.class.path']
+        bootstrapClasspath configurations.scalaTools
+        classpath configurations.runtime
+        classpath sourceSets.main.output.classesDir
+    }
+    // Restore terminal
+    javaexec {
+        main = 'scala.tools.nsc.MainGenericRunner'
+        args '-e', 'scala.tools.jline.TerminalFactory.get.restore()'
+        bootstrapClasspath System.properties['sun.boot.class.path']
+        bootstrapClasspath configurations.scalaTools
+    }
 }
 
 task wrapper(type: Wrapper)
