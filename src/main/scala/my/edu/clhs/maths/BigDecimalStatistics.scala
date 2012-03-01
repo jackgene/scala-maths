@@ -1,5 +1,5 @@
 /*
- * Statistics.scala
+ * BigDecimalStatistics.scala
  *
  * Copyright 2011 Jack Leow
  *

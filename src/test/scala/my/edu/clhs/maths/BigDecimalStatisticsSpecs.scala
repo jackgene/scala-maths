@@ -1,5 +1,5 @@
 /*
- * StatisticsSpecs.scala
+ * BigDecimalStatisticsSpecs.scala
  *
  * Copyright 2011 Jack Leow
  *
@@ -23,7 +23,7 @@ import org.scalatest.junit.JUnitRunner
 import org.scalatest.junit.MustMatchersForJUnit
 
 /**
- * {@link Statistics} specifications.
+ * {@link BigDecimalStatistics} specifications.
  * 
  * @author Jack Leow
  */

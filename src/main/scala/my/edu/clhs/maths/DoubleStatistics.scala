@@ -1,5 +1,5 @@
 /*
- * Statistics.scala
+ * DoubleStatistics.scala
  *
  * Copyright 2011 Jack Leow
  *

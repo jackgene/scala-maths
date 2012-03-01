@@ -1,5 +1,5 @@
 /*
- * StatisticsSpecs.scala
+ * DoubleStatisticsSpecs.scala
  *
  * Copyright 2011 Jack Leow
  *
@@ -23,7 +23,7 @@ import org.scalatest.junit.JUnitRunner
 import org.scalatest.junit.MustMatchersForJUnit
 
 /**
- * {@link Statistics} specifications.
+ * {@link DoubleStatistics} specifications.
  * 
  * @author Jack Leow
  */
