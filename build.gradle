@@ -1,8 +1,10 @@
 apply plugin: 'scala'
+apply plugin: 'application'
 apply plugin: 'eclipse'
 
 group = 'my.edu.clhs'
 version = '0.0-SNAPSHOT'
+mainClassName = 'my.edu.clhs.maths.hadoop.CalculateStatisticsJob'
 
 defaultTasks 'jar'
 
