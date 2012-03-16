@@ -58,7 +58,8 @@ class CalculateStatisticsJobSpecs extends WordSpec with MustMatchersForJUnit {
       
       // Verify
       val expected = "(6,3.3333333333333335,2.494438257849294)"
-      val actual = Source.fromFile(OUTPUT_DIR + "/part-r-00000").getLine(0)
+      val actual = Source.fromFile(OUTPUT_DIR + "/part-r-00000").
+        getLines.toIndexedSeq(0)
       (actual) must equal (expected)
     }
   }
